@@ -2,28 +2,7 @@
 
 This project demonstrates how to deploy a Flask REST API on Kubernetes using Docker containers, Terraform for infrastructure provisioning, and GitHub Actions for continuous integration and continuous deployment (CI/CD) pipeline. The API returns hostname, datetime, version, and weather data for Dhaka using a free 3rd party weather API.
 
-## Project Structure
 
-api
-api.py // Code for the Flask REST API
-requirements.txt // Python dependencies
-Dockerfile // Dockerfile for containerization
-.gitignore
-.github
-workflows
-main.yml // CI/CD pipeline configuration
-terraform
-main.tf // Terraform code for Kubernetes cluster
-modules
-kubernetes_cluster
-main.tf // Terraform module for Kubernetes cluster
-kubernetes-manifests // Manifest files for Kubernetes deployment
-deployment.yaml // Kubernetes Deployment manifest
-service.yaml // Kubernetes Service manifest
-ingress.yaml // Kubernetes Ingress manifest (optional)
-secret.yaml // Kubernetes Secret manifest for storing API key
-markdown
-Copy code
 
 ## Prerequisites
 
