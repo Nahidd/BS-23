@@ -54,3 +54,8 @@ Before running this project, ensure you have the following prerequisites install
 ## Continuous Integration and Continuous Deployment (CI/CD)
 
 The project includes a CI/CD pipeline configured with GitHub Actions. Whenever a new release is created, the pipeline automatically builds the Docker image, pushes it to Docker Hub, and deploys the application to the Kubernetes cluster.
+
+
+## Task 2
+
+The `Task 2` folder contains the cloud architectural design.
