@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-api
+  template:
+    metadata:
+      labels:
+        app: my-api
+    spec:
+      containers:
+        - name: my-api
+          image: donahid/my-api:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-api-secret
+                  key: api-key

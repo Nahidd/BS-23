@@ -1,0 +1,26 @@
+# .github/workflows/main.yml
+name: CI/CD Pipeline
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build -t donahid/my-api:${{ github.event.release.tag_name }} .
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u donahid --password-stdin
+
+    - name: Push Docker image to Docker Hub
+      run: docker push donahid/my-api:${{ github.event.release.tag_name }}
+
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f kubernetes-manifests/
